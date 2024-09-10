@@ -1,0 +1,63 @@
+
+ /* CSS */
+
+.butt-container {
+    display: flex;
+    justify-content:center; /* Center buttons horizontally */
+    align-items: center; /* Align buttons vertically */
+    gap: 5px; /* Add some space between buttons */
+}
+
+.button-19
+{
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: din-round,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 70px 100px;
+    outline: none;
+    overflow: visible;
+    padding: 13px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.current {
+    font-family: din-round,sans-serif;
+    text-align: center;
+    margin: 200px;
+    font-size: 36px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.score {
+    font-family: din-round,sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0px 80px;
+}

@@ -8,46 +8,63 @@ let computerScore= 0;
 let playerAction;
 let computerAction;
 
-PlayGame();
+let rockButton = document.querySelector("#RockButton");
+let paperButton = document.querySelector("#PaperButton");
+let scissorsButton = document.querySelector("#ScissorsButton");
+let currentText = document.querySelector(".current");
+let playerPoints = document.querySelector(".player");
+let computerPoints = document.querySelector(".computer");
 
-function PlayGame(){
-    if(currentRound < 5){
-        PlayRound()
+rockButton.addEventListener('click', () => getHumanChoice(0));
+paperButton.addEventListener('click', () => getHumanChoice(1));
+scissorsButton.addEventListener('click', () => getHumanChoice(2));
+
+
+function PlayGame() {
+    playerPoints.textContent = humanScore;
+    computerPoints.textContent = computerScore;
+    if(computerScore < 5 && humanScore < 5){
+        return;
     }
     else{
         if(humanScore > computerScore){
-            console.log("YOU WIN!!!");
+            currentText.textContent = "YOU WIN!";
         }
         else{
-            console.log("YOU LOSE :(");
+            currentText.textContent = "YOU LOSE!";
         }
     }
 }
 
-function PlayRound(){
-    getHumanChoice();
+function PlayRound() {
+
+    if (computerScore >= 5 || humanScore >= 5) {
+        return;
+    }
+
     getComputerChoice();
     if (playerAction == computerAction){
-        console.log("Tie! You chose the same action!");
+        currentText.textContent = "Tie! You chose the same action!";
         PlayGame();
     }
     else{
         currentRound++;
         if (playerAction == "Rock" && computerAction == "Paper" || playerAction == "Paper" && computerAction == "Scissors" || playerAction == "Scissors" && computerAction == "Rock"){
-            console.log("You Lose! "+ computerAction+" beats " +playerAction); 
+            currentText.textContent = "You Lose! " + computerAction + " beats " + playerAction;
             computerScore++;
         }
         else{
-            console.log("You Win! "+ playerAction+" beats " +computerAction); 
+            currentText.textContent = "You Win! " + playerAction + " beats " + computerAction;
             humanScore++;
         }
         PlayGame();
     }
 }
 
-function getHumanChoice(){
-    let playerChoice = Number(prompt("Write rock (0), paper (1) or scissors(2) to play: ", "0"));
+function getHumanChoice(chosenOption) {
+    let playerChoice = chosenOption;
     playerAction = assignActionToIndex(playerChoice);
+    PlayRound();
 }
 
 function getComputerChoice(){
